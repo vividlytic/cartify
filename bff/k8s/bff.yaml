@@ -37,5 +37,7 @@ spec:
           env:
             - name: CATALOGUE_CLIENT_URI
               value: "catalogue:50051"
+            - name: ORDER_CLIENT_URI
+              value: "order:50052"
           ports:
             - containerPort: 4000
