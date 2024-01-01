@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: bff
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - cartify-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /bff/
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: bff
+            port:
+              number: 4000
+      timeout: 0.5s # #タイムアウト時間。

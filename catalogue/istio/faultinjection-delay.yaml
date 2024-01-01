@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: catalogue
+spec:
+  hosts:
+    - catalogue
+  http:
+    - route:
+        - destination:
+            host: catalogue
+      fault:
+        delay: # 100%の確率で2秒間の遅延
+          percent: 100
+          fixedDelay: 2s
